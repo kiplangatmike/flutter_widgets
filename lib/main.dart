@@ -43,7 +43,7 @@ class MyHomePage extends StatelessWidget {
                       // sized box with width 10
                       width: 10,
                     ),
-                    Text("Get The App")
+                    Text("Star"),
                   ],
                 ),
               ),
@@ -57,36 +57,78 @@ class MyHomePage extends StatelessWidget {
       ),
       body: Container(
         color: Colors.grey,
-        child: Padding(
-          padding: const EdgeInsets.all(20.0),
-          child: Card(
-            color: Colors.teal,
-            child: Column(
+        child: Row(
+          children: [
+            Column(
               children: [
-                ConstrainedBox(
-                  constraints: const BoxConstraints.tightFor(
-                    height: 200,
-                    width: 200,
+                Padding(
+                  padding: const EdgeInsets.all(20.0),
+                  child: Card(
+                    color: Colors.teal,
+                    child: Column(
+                      children: [
+                        ConstrainedBox(
+                          constraints: const BoxConstraints.tightFor(
+                            height: 200,
+                            width: 200,
+                          ),
+                          child: Container(
+                            color: Colors.red,
+                            child: const Text('constrained box'),
+                          ),
+                        ),
+                        const SizedBox(
+                          height: 10,
+                        ),
+                        ConstrainedBox(
+                          constraints: const BoxConstraints.tightFor(
+                            height: 200,
+                            width: 200,
+                          ),
+                          child: Container(
+                              color: Colors.blue,
+                              child: Text('constrained box')),
+                        ),
+                        const SizedBox(
+                          height: 10,
+                        ),
+                        RotatedBox(
+                            quarterTurns: 1,
+                            child: ClipPath(
+                              child: Image.network(
+                                  'https://picsum.photos/250?image=9'),
+                            )),
+                      ],
+                    ),
                   ),
-                  child: Container(
-                    color: Colors.red,
-                    child: const Text('constrained box'),
-                  ),
-                ),
-                const SizedBox(
-                  height: 10,
-                ),
-                ConstrainedBox(
-                  constraints: const BoxConstraints.tightFor(
-                    height: 200,
-                    width: 200,
-                  ),
-                  child: Container(
-                      color: Colors.blue, child: Text('constrained box')),
                 ),
               ],
             ),
-          ),
+            Column(
+              children: [
+                const SizedBox(
+                  height: 25,
+                ),
+                Container(
+                  color: Colors.green,
+                  child: Text('this is a good fitted box'),
+                  width: 100,
+                  height: 20,
+                ),
+                const SizedBox(
+                  height: 25,
+                ),
+                Container(
+                  color: Colors.green,
+                  child: FittedBox(
+                    child: Text('this is a good fitted box'),
+                  ),
+                  width: 100,
+                  height: 20,
+                ),
+              ],
+            ),
+          ],
         ),
       ),
       drawer: Drawer(
