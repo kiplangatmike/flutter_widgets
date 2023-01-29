@@ -35,6 +35,8 @@ class MyHomePage extends StatelessWidget {
         child: const Icon(Icons.menu),
       ),
       resizeToAvoidBottomInset: false,
+
+      // setting up the appBar of the scaffold widget with text, icon theme and actions
       appBar: AppBar(
         title: const Text('Todo List'),
         iconTheme: const IconThemeData(color: Colors.black),
@@ -44,7 +46,7 @@ class MyHomePage extends StatelessWidget {
               // popupmenu item 1
               PopupMenuItem(
                 value: 1,
-                // row has two child icon and text.
+                // row has two children, icon and text.
                 child: Row(
                   children: [
                     const Icon(Icons.star),
@@ -64,6 +66,8 @@ class MyHomePage extends StatelessWidget {
           ),
         ],
       ),
+
+      // the body of the scaffold widget. All the content on the app body comes here
       body: Container(
         color: const Color.fromARGB(255, 239, 233, 233),
         child: Row(
