@@ -1,10 +1,15 @@
+// ignore_for_file: prefer_const_literals_to_create_immutables, prefer_const_constructors, sort_child_properties_last
+
 import 'package:flutter/material.dart';
 
 void main() {
   runApp(MyApp());
 }
 
+// creating the stateless widget app
 class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -18,7 +23,10 @@ class MyApp extends StatelessWidget {
   }
 }
 
+// creating the homepage class
 class MyHomePage extends StatelessWidget {
+  const MyHomePage({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -26,10 +34,10 @@ class MyHomePage extends StatelessWidget {
         onPressed: () {},
         child: const Icon(Icons.menu),
       ),
-      resizeToAvoidBottomInset : false,
+      resizeToAvoidBottomInset: false,
       appBar: AppBar(
-        title: Text('Todo List'),
-        iconTheme: IconThemeData(color: Colors.black),
+        title: const Text('Todo List'),
+        iconTheme: const IconThemeData(color: Colors.black),
         actions: [
           PopupMenuButton<int>(
             itemBuilder: (context) => [
@@ -39,25 +47,25 @@ class MyHomePage extends StatelessWidget {
                 // row has two child icon and text.
                 child: Row(
                   children: [
-                    Icon(Icons.star),
-                    SizedBox(
+                    const Icon(Icons.star),
+                    const SizedBox(
                       // sized box with width 10
                       width: 10,
                     ),
-                    Text("Star"),
+                    const Text("Star"),
                   ],
                 ),
               ),
               // popupmenu item 2
             ],
-            offset: Offset(0, 100),
-            color: Color.fromARGB(255, 239, 233, 233),
+            offset: const Offset(0, 100),
+            color: const Color.fromARGB(255, 239, 233, 233),
             elevation: 2,
           ),
         ],
       ),
       body: Container(
-        color: Color.fromARGB(255, 239, 233, 233),
+        color: const Color.fromARGB(255, 239, 233, 233),
         child: Row(
           children: [
             Column(
@@ -76,12 +84,13 @@ class MyHomePage extends StatelessWidget {
                           child: Container(
                             color: Colors.red,
                             padding: const EdgeInsets.all(20.0),
-                            child: const Text('constrained box',
-                            style: TextStyle(
-                                    fontSize: 18,
-                                    fontWeight: FontWeight.w500,
-                                  ),
-                                  ),
+                            child: const Text(
+                              'constrained box',
+                              style: TextStyle(
+                                fontSize: 18,
+                                fontWeight: FontWeight.w500,
+                              ),
+                            ),
                           ),
                         ),
                         const SizedBox(
@@ -96,45 +105,45 @@ class MyHomePage extends StatelessWidget {
                               color: Colors.blue,
                               padding: const EdgeInsets.all(20.0),
                               child: const Text('constrained box',
-                                    style: TextStyle(
+                                  style: TextStyle(
                                     fontSize: 18,
                                     fontWeight: FontWeight.w500,
-                                  )
-                              )
-                              ),
+                                  ))),
                         ),
                         const SizedBox(
                           height: 10,
                         ),
-                        const Text( 'Rotated Box',
-                              style: TextStyle(
-                                fontSize: 18,
-                                fontWeight: FontWeight.w500,
-                              ),
-                            ),
+                        const Text(
+                          'Rotated Box',
+                          style: TextStyle(
+                            fontSize: 18,
+                            fontWeight: FontWeight.w500,
+                          ),
+                        ),
                         RotatedBox(
                             quarterTurns: 1,
                             child: ClipPath(
                               child: Image.network(
                                   'https://picsum.photos/250?image=9'),
                             )),
-
-                        
                       ],
                     ),
                   ),
                 ),
-                const Text( 'Image widget',
-                style: TextStyle(
-                  fontSize: 18,
-                  fontWeight: FontWeight.w500,
+                const Text(
+                  'Image widget',
+                  style: TextStyle(
+                    fontSize: 18,
+                    fontWeight: FontWeight.w500,
+                  ),
                 ),
-              ),
+
                 // The image widget that fetches the picture from the project assets folder
-                Image.asset('assets/pic.jpeg',
-                                    height: 150,
-                                    width: 200,
-                        ),
+                Image.asset(
+                  'assets/pic.jpeg',
+                  height: 150,
+                  width: 200,
+                ),
               ],
             ),
             Column(
@@ -144,7 +153,7 @@ class MyHomePage extends StatelessWidget {
                 ),
                 Container(
                   color: Colors.green,
-                  child: Text('this is not a good fitted box'),
+                  child: const Text('This is not a good fitted box'),
                   width: 100,
                   height: 20,
                 ),
@@ -153,7 +162,7 @@ class MyHomePage extends StatelessWidget {
                 ),
                 Container(
                   color: Colors.green,
-                  child: FittedBox(
+                  child: const FittedBox(
                     child: Text('this is a good fitted box'),
                   ),
                   width: 100,
