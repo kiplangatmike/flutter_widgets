@@ -26,6 +26,7 @@ class MyHomePage extends StatelessWidget {
         onPressed: () {},
         child: const Icon(Icons.menu),
       ),
+      resizeToAvoidBottomInset : false,
       appBar: AppBar(
         title: Text('Todo List'),
         iconTheme: IconThemeData(color: Colors.black),
@@ -50,13 +51,13 @@ class MyHomePage extends StatelessWidget {
               // popupmenu item 2
             ],
             offset: Offset(0, 100),
-            color: Colors.grey,
+            color: Color.fromARGB(255, 239, 233, 233),
             elevation: 2,
           ),
         ],
       ),
       body: Container(
-        color: Colors.grey,
+        color: Color.fromARGB(255, 239, 233, 233),
         child: Row(
           children: [
             Column(
@@ -69,12 +70,18 @@ class MyHomePage extends StatelessWidget {
                       children: [
                         ConstrainedBox(
                           constraints: const BoxConstraints.tightFor(
-                            height: 200,
+                            height: 100,
                             width: 200,
                           ),
                           child: Container(
                             color: Colors.red,
-                            child: const Text('constrained box'),
+                            padding: const EdgeInsets.all(20.0),
+                            child: const Text('constrained box',
+                            style: TextStyle(
+                                    fontSize: 18,
+                                    fontWeight: FontWeight.w500,
+                                  ),
+                                  ),
                           ),
                         ),
                         const SizedBox(
@@ -82,26 +89,52 @@ class MyHomePage extends StatelessWidget {
                         ),
                         ConstrainedBox(
                           constraints: const BoxConstraints.tightFor(
-                            height: 200,
+                            height: 100,
                             width: 200,
                           ),
                           child: Container(
                               color: Colors.blue,
-                              child: Text('constrained box')),
+                              padding: const EdgeInsets.all(20.0),
+                              child: const Text('constrained box',
+                                    style: TextStyle(
+                                    fontSize: 18,
+                                    fontWeight: FontWeight.w500,
+                                  )
+                              )
+                              ),
                         ),
                         const SizedBox(
                           height: 10,
                         ),
+                        const Text( 'Rotated Box',
+                              style: TextStyle(
+                                fontSize: 18,
+                                fontWeight: FontWeight.w500,
+                              ),
+                            ),
                         RotatedBox(
                             quarterTurns: 1,
                             child: ClipPath(
                               child: Image.network(
                                   'https://picsum.photos/250?image=9'),
                             )),
+
+                        
                       ],
                     ),
                   ),
                 ),
+                const Text( 'Image widget',
+                style: TextStyle(
+                  fontSize: 18,
+                  fontWeight: FontWeight.w500,
+                ),
+              ),
+                // The image widget that fetches the picture from the project assets folder
+                Image.asset('assets/pic.jpeg',
+                                    height: 150,
+                                    width: 200,
+                        ),
               ],
             ),
             Column(
@@ -111,7 +144,7 @@ class MyHomePage extends StatelessWidget {
                 ),
                 Container(
                   color: Colors.green,
-                  child: Text('this is a good fitted box'),
+                  child: Text('this is not a good fitted box'),
                   width: 100,
                   height: 20,
                 ),
